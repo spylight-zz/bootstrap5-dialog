@@ -2,7 +2,7 @@
 
 Bootstrap 5 dialog with dark/light mode support
 
-Based on original work by <javanoob@hotmail.com><br>
+Based on original work bootstrap3-dialog by <javanoob@hotmail.com><br>
 Updated for Bootstrap 5
 
 ## example
