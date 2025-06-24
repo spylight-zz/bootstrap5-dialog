@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>bs5 modal dialog</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="bootstrap5dialog.css">
+</head>
+
+<body>
+  <div class="">
+    <!-- <button class="btn btn-info btnTes">Show</button> -->
+    <div class="m-1 border-0"> <button type="button" class="btn btn-primary btnShow">Show</button>
+      <button type="button" class="btn btn-success btnSuccess">Success</button>
+      <button type="button" class="btn btn-danger btnAlert">Alert</button>
+      <button type="button" class="btn btn-dark btnConfirm">Confirm</button>
+      <button type="button" class="btn btn-warning btnWarning">Warning</button>
+      <button type="button" class="btn btn-info btnInfo">Info</button>
+      <button type="button" class="btn btn-danger btnDanger">Danger</button>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap5dialog.js"></script>
+  <script>
+    const btnShow = document.querySelector('.btnShow')
+    const btnSuccess = document.querySelector('.btnSuccess')
+    const btnAlert = document.querySelector('.btnAlert')
+    const btnWarning = document.querySelector('.btnWarning')
+    const btnInfo = document.querySelector('.btnInfo')
+    const btnDanger = document.querySelector('.btnDanger')
+    const btnConfirm = document.querySelector('.btnConfirm')
+    btnShow.addEventListener('click', () => {
+      const dialog = new BootstrapDialog({
+        title: 'title dialog',
+        message: 'Hello world from dialog form',
+        draggable: true
+      })
+      dialog.show()
+    })
+    btnAlert.addEventListener('click', function () {
+      new BootstrapDialog.alert('hello from alert')
+    })
+    btnConfirm.addEventListener('click', function () {
+      new BootstrapDialog.confirm('hello from confirm', (result) => {
+        console.log(result);
+
+      })
+    })
+    btnWarning.addEventListener('click', function () {
+      new BootstrapDialog.warning({
+        message: "this is warning",
+        callback: (result) => {
+          if (result) {
+            console.log('ok');
+          }          
+        }
+      });
+    })
+    btnDanger.addEventListener('click', function() {
+      new BootstrapDialog.danger('some danger', (res) => {
+        console.log(res);        
+      })
+    })
+    btnInfo.addEventListener('click', function() {
+      new BootstrapDialog.info('some info', (res) => {
+        console.log(res);
+      })
+    })
+    btnSuccess.addEventListener('click', function() {
+      new BootstrapDialog.success('success dialog')
+    })
+  </script>
+</body>
+
+</html>
